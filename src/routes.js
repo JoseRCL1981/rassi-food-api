@@ -8,6 +8,7 @@ import controllerDestaque from "./controllers/controlDestaque.js";
 import controllerUsuario from "./controllers/controlUsuario.js";
 import controllerUsuario_favorito from "./controllers/controlUsuario_favorito.js";
 import controllerPedido from "./controllers/controlPedido.js";
+import controllerPedido_item from "./controllers/controlPedido_item.js";
 const router = Router();
 
 router.get('/teste', (req, res) => {
@@ -23,5 +24,6 @@ router.get("/destaques", controllerDestaque.Listar);
 router.get("/usuarios", controllerUsuario.Listar);
 router.get("/usuario_favoritos", controllerUsuario_favorito.Listar);
 router.get("/pedidos", controllerPedido.Listar);
+router.get("/pedido_item", controllerPedido_item.Listar);
 
 export default router;
