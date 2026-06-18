@@ -9,6 +9,7 @@ import controllerUsuario from "./controllers/controlUsuario.js";
 import controllerUsuario_favorito from "./controllers/controlUsuario_favorito.js";
 import controllerPedido from "./controllers/controlPedido.js";
 import controllerPedido_item from "./controllers/controlPedido_item.js";
+import jwt from "./token.js";
 const router = Router();
 
 router.get('/teste', (req, res) => {
@@ -25,5 +26,9 @@ router.get("/usuarios", controllerUsuario.Listar);
 router.get("/usuario_favoritos", controllerUsuario_favorito.Listar);
 router.get("/pedidos", controllerPedido.Listar);
 router.get("/pedido_item", controllerPedido_item.Listar);
+
+router.post("/usuarios/login", controllerUsuario.Login);
+router.post("/usuarios", controllerUsuario.Inserir);
+router.post("/usuarios/perfil", jwt.ValidateJWT, controllerUsuario.Perfil);
 
 export default router;
